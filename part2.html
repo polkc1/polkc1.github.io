@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 2 - Performing Calculations</title>
+    <script>
+        function processData() {
+            // Get input values
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const num3 = parseFloat(document.getElementById('num3').value);
+
+            // Validate inputs
+            if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+                document.getElementById('results').innerText = 'Please enter valid numbers in all input fields.';
+                return;
+            }
+
+            // Calculate results
+            const sum = num1 + num2 + num3;
+            const average = sum / 3;
+            const product = num1 * num2 * num3;
+            const smallest = Math.min(num1, num2, num3);
+            const largest = Math.max(num1, num2, num3);
+
+            // Display results
+            document.getElementById('results').innerText =
+                `Sum: ${sum}\n` +
+                `Average: ${average}\n` +
+                `Product: ${product}\n` +
+                `Smallest: ${smallest}\n` +
+                `Largest: ${largest}`;
+        }
+
+        function clearForm() {
+            document.getElementById('num1').value = '';
+            document.getElementById('num2').value = '';
+            document.getElementById('num3').value = '';
+            document.getElementById('results').innerText = '';
+        }
+    </script>
+</head>
+<body>
+    <h1>Part 2 - Performing Calculations</h1>
+    <form>
+        <label for="num1">Enter first number:</label>
+        <input type="text" id="num1" name="num1"><br>
+        <label for="num2">Enter second number:</label>
+        <input type="text" id="num2" name="num2"><br>
+        <label for="num3">Enter third number:</label>
+        <input type="text" id="num3" name="num3"><br><br>
+        <button type="button" onclick="processData()">Process Data</button>
+        <button type="button" onclick="clearForm()">Clear</button>
+    </form>
+    <textarea id="results" rows="10" cols="50" readonly></textarea><br>
+    <a href="hw2.html">Back to Homework 2 Main Page</a>
+</body>
+</html>

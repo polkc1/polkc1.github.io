@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Displaying Text</title>
+    <script>
+        function displayText() {
+            document.getElementById('output').innerHTML =
+                '<span style="font-family: Times New Roman; color: red; font-weight: bold;">xy</span> ' +
+                '<span style="font-family: Arial; color: blue;">12</span> ' +
+                '<span style="font-family: Impact; color: green; font-style: italic;">89</span>';
+        }
+    </script>
+</head>
+<body onload="displayText()">
+    <h1>Part 1 - Displaying Text in Different Styles</h1>
+    <div id="output"></div>
+    <a href="hw2.html">Back to Homework 2 Main Page</a>
+</body>
+</html>
