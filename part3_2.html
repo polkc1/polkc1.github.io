@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 2: Sales Commission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            margin: 5px 0;
+        }
+        .right-align {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sales Commission</h1>
+    <form id="salesForm">
+        <label for="salesPerson">Salesperson Name:</label>
+        <input type="text" id="salesPerson"><br>
+        
+        <label for="item1">Item 1 (20.99):</label>
+        <input type="number" id="item1" min="0" placeholder="Qty Sold"><br>
+        
+        <label for="item2">Item 2 (12.75):</label>
+        <input type="number" id="item2" min="0" placeholder="Qty Sold"><br>
+        
+        <label for="item3">Item 3 (9.95):</label>
+        <input type="number" id="item3" min="0" placeholder="Qty Sold"><br>
+        
+        <label for="item4">Item 4 (35.89):</label>
+        <input type="number" id="item4" min="0" placeholder="Qty Sold"><br>
+        
+        <button type="button" onclick="calculateEarnings()">Calculate Earnings</button>
+    </form>
+
+    <h2>Total Sold</h2>
+    <div class="right-align">
+        <p id="totalSold"></p>
+        <p id="totalEarnings"></p>
+    </div>
+
+    <script>
+        function calculateEarnings() {
+            const itemPrices = [20.99, 12.75, 9.95, 35.89];
+            let totalSales = 0;
+            let totalQty = 0;
+            let totalEarnings;
+
+            for (let i = 0; i < itemPrices.length; i++) {
+                const qtySold = parseInt(document.getElementById(`item${i + 1}`).value) || 0;
+                if (qtySold < 0) {
+                    alert("Quantity sold cannot be negative.");
+                    return;
+                }
+                totalSales += qtySold * itemPrices[i];
+                totalQty += qtySold;
+            }
+
+            totalEarnings = (totalSales * 0.09) + 250;
+
+            // Output results
+            document.getElementById('totalSold').textContent = `Total Sold: $${totalSales.toFixed(2)}`;
+            document.getElementById('totalEarnings').textContent = `Total Earnings: $${totalEarnings.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
