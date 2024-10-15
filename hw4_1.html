@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part 1 - Looping Calculations</title>
+</head>
+<body>
+    <h1>Part 1 - Looping Calculations</h1>
+
+    <script>
+        // For loop for product and sum of every fourth integer from 5 to 25
+        let product = 1;
+        let sum = 0;
+        for (let i = 5; i <= 25; i += 4) {
+            product *= i;
+            sum += i;
+        }
+        document.write(`The result of 5 * 9 * 13 * 17 * 21 * 25 is ${product.toLocaleString()}<br>`);
+        document.write(`The result of 5 + 9 + 13 + 17 + 21 + 25 is ${sum.toLocaleString()}<br><br>`);
+
+        // While loop for product and sum of every third integer from 3 to 18
+        product = 1;
+        sum = 0;
+        let j = 3;
+        while (j <= 18) {
+            product *= j;
+            sum += j;
+            j += 3;
+        }
+        document.write(`The result of 3 * 6 * 9 * 12 * 15 * 18 is ${product.toLocaleString()}<br>`);
+        document.write(`The result of 3 + 6 + 9 + 12 + 15 + 18 is ${sum.toLocaleString()}<br>`);
+    </script>
+
+    <p><a href="index.html">Return to Homework 4</a></p>
+</body>
+</html>

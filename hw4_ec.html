@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra Credit - Hollow Square</title>
+</head>
+<body>
+    <h1>Hollow Square Generator</h1>
+    <form>
+        <label for="size">Enter a number between 2 and 10:</label>
+        <input type="number" id="size" name="size">
+        <button type="button" onclick="generateSquare()">Generate</button>
+        <button type="reset">Clear</button>
+    </form>
+    <div id="output"></div>
+
+    <script>
+        function generateSquare() {
+            const size = parseInt(document.getElementById('size').value);
+            const output = document.getElementById('output');
+            output.innerHTML = '';  // Clear previous output
+
+            if (isNaN(size) || size < 2 || size > 10) {
+                output.innerHTML = 'Please enter a valid number between 2 and 10.';
+                return;
+            }
+
+            let square = '';
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
+                    if (i === 0 || i === size - 1 || j === 0 || j === size - 1) {
+                        square += '* ';
+                    } else {
+                        square += '&nbsp;&nbsp;';  // Empty space inside the square
+                    }
+                }
+                square += '<br>';  // New line for each row
+            }
+            output.innerHTML = `<pre>${square}</pre>`;
+        }
+    </script>
+
+    <p><a href="index.html">Return to Homework 4</a></p>
+</body>
+</html>
