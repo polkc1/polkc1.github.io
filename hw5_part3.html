@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 5 - Part 3</title>
+    <link rel="stylesheet" href="styles_p2.css">
+</head>
+<body>
+    <header>
+        <h1>Homework 5 - Part 3: State Information Lookup</h1>
+    </header>
+    <nav>
+        <a href="homework5.html">&#8592; Back to Homework 5</a>
+    </nav>
+    <main>
+        <form id="stateForm">
+            <!-- State Input -->
+            <label for="stateInput">Enter State Name or Abbreviation:</label>
+            <input type="text" id="stateInput" name="stateInput" required>
+
+            <!-- Submit and Clear Buttons -->
+            <div class="button-group">
+                <button type="submit">Get State Info</button>
+                <button type="reset">Clear</button>
+            </div>
+        </form>
+
+        <!-- Output Area -->
+        <div id="stateOutput" class="output-area"></div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="part3.js"></script>
+</body>
+</html>
