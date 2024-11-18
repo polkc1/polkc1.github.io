@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Part 1 - Number Calculations</title>
+<script>
+        function validateAndCalculate() {
+            const input = parseFloat(document.getElementById("numInput").value);
+            const resultArea = document.getElementById("result");
+            
+            if (isNaN(input) || !/^\d+\.\d{4,}$/.test(input)) {
+                resultArea.textContent = "You need to type a number with at least 4 decimals, please try again.";
+                return;
+            }
+
+            const roundedInt = Math.round(input);
+            const sqrtInt = Math.round(Math.sqrt(input));
+            const roundedTenths = input.toFixed(1);
+            const roundedHundredths = input.toFixed(2);
+            const roundedThousandths = input.toFixed(3);
+
+            resultArea.innerHTML = `
+                You typed number ${input}<br>
+                Rounded to the nearest integer = ${roundedInt}<br>
+                Square root rounded to integer = ${sqrtInt}<br>
+                Rounded to the nearest 10th position = ${roundedTenths}<br>
+                Rounded to the nearest 100th position = ${roundedHundredths}<br>
+                Rounded to the nearest 1000th position = ${roundedThousandths}
+            `;
+        }
+
+        function clearForm() {
+            document.getElementById("numInput").value = "";
+            document.getElementById("result").textContent = "";
+        }
+    </script>
+<link href="6css.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>Part 1 - Number Calculations</h1>
+    <form>
+        <input type="text" id="numInput" placeholder="Enter a number with at least 4 decimals"><br>
+        <button type="button" onclick="validateAndCalculate()">Submit</button>
+        <button type="button" onclick="clearForm()">Clear</button>
+    </form>
+    <p id="result"></p>
+    <a href="hw6.html">Back to Homework 6</a>
+</body>
+</html>

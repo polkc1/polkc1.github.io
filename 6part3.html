@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Part 3 - Phone Number Validation</title>
+<script>
+        function validatePhoneNumber() {
+            const phoneNumber = document.getElementById("phoneNumber").value;
+            const resultArea = document.getElementById("result");
+            const phonePattern = /^\(\d{3}\) \d{3}-\d{4}$/;
+
+            if (!phonePattern.test(phoneNumber)) {
+                resultArea.textContent = "Please enter a valid phone number in the format (999) 999-9999.";
+            } else {
+                resultArea.textContent = `Thank you for providing your phone number. We will contact you soon.`;
+            }
+        }
+
+        function clearForm() {
+            document.getElementById("phoneNumber").value = "";
+            document.getElementById("result").textContent = "";
+        }
+    </script>
+<link href="6css.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>Part 3 - Phone Number Validation</h1>
+    <form>
+        <input type="text" id="phoneNumber" placeholder="Enter phone number (999) 999-9999"><br>
+        <button type="button" onclick="validatePhoneNumber()">Submit</button>
+        <button type="button" onclick="clearForm()">Clear</button>
+    </form>
+    <p id="result"></p>
+    <a href="hw6.html">Back to Homework 6</a>
+</body>
+</html>

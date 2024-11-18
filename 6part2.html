@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Part 2 - Character Search</title>
+<script>
+        function searchCharacter() {
+            const content = document.getElementById("content").value;
+            const char = document.getElementById("charInput").value.toLowerCase();
+            const resultArea = document.getElementById("result");
+
+            if (char.length !== 1) {
+                resultArea.textContent = "Please enter only one character.";
+                return;
+            }
+
+            const count = (content.toLowerCase().split(char).length - 1);
+
+            if (count > 0) {
+                resultArea.innerHTML = `The character '${char}' appears ${count} times in your content.`;
+            } else {
+                const newWindow = window.open("", "Search Result", "width=300,height=100");
+                newWindow.document.write(`<p>Search character '${char}' not found in the content you typed.</p>`);
+                newWindow.document.write(`<button onclick="window.close()">Close</button>`);
+                document.getElementById("charInput").value = ""; // Clear input
+                document.getElementById("content").value = ""; // Clear content
+            }
+        }
+
+        function clearForm() {
+            document.getElementById("content").value = "";
+            document.getElementById("charInput").value = "";
+            document.getElementById("result").textContent = "";
+        }
+    </script>
+<link href="6css.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>Part 2 - Character Search</h1>
+    <form>
+        <textarea id="content" rows="10" cols="30" placeholder="Enter long content"></textarea><br>
+        <input type="text" id="charInput" maxlength="1" placeholder="Enter a single character"><br>
+        <button type="button" onclick="searchCharacter()">Submit</button>
+        <button type="button" onclick="clearForm()">Clear</button>
+    </form>
+    <p id="result"></p>
+    <a href="hw6.html">Back to Homework 6</a>
+</body>
+</html>
